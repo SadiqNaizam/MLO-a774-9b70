@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -38,7 +39,7 @@ export default {
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					foreground: 'hsl(var(--muted-foreground))' // PRD secondaryText maps here
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
@@ -49,25 +50,22 @@ export default {
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: 'hsl(var(--card))', // PRD surface
+					foreground: 'hsl(var(--card-foreground))' // PRD primaryText
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Direct PRD color names for utility classes if needed
+        primaryText: 'hsl(var(--card-foreground))', // For PRD: text-primaryText (maps to #212529)
+        secondaryText: 'hsl(var(--muted-foreground))', // For PRD: text-secondaryText (maps to #878A99)
+        accentBlue: 'hsl(var(--primary))', // For PRD: bg-accentBlue (maps to #17BBD8)
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // 0.375rem (PRD default/buttons: rounded-md)
+				md: 'calc(var(--radius) - 2px)', // 0.375rem - 2px = 0.25rem (PRD inputs: rounded)
+				sm: 'calc(var(--radius) - 4px)' // 0.375rem - 4px = 0.125rem
 			},
+      fontFamily: {
+        sans: ['sans-serif', ...fontFamily.sans], // PRD: primaryFont: "sans-serif"
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
